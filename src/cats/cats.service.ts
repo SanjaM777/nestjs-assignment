@@ -43,6 +43,14 @@ export class CatsService {
     return this.catsRepository.findOneBy({ id });
   }
 
+  updateCat(id: number, createCatsDto: CreateCatDto): Promise<Cats> {
+    const cat: Cats = new Cats();
+    cat.name = createCatsDto.name;
+    cat.age = createCatsDto.age;
+    cat.breed = createCatsDto.breed;
+    cat.id = id;
+    return this.catsRepository.save(cat);
+  } 
 
   removeCat(id: number): Promise<{ affected?: number }> {
     return this.catsRepository.delete(id);
