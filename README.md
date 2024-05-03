@@ -45,9 +45,8 @@ Test using postman
 ````
 
   1. register
-   Post localhost:3000/auth/register
-       
-       body, Json   
+        Post localhost:3000/auth/register
+        body, Json   
         {
             "username" : "test",
             "email" : "test@example.com",
@@ -55,8 +54,7 @@ Test using postman
             "role" : "admin"
         } 
   2. login
-
-    Post ocalhost:3000/auth/login
+        Post localhost:3000/auth/login
         body, Json   
         {
             "email" : "test@example.com",
