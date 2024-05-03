@@ -5,12 +5,17 @@ import { Repository } from "typeorm";
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { Auth } from "./entities/auth.entity";
 
+interface JwtPayload {
+    id: number;
+}
+
+
 @Injectable()
-export class JwtStrategy extends PassportStrategy(Strategy){
+export class JwtStrategy extends PassportStrategy(Strategy) {
     constructor(
         @InjectRepository(Auth)
         private usersRepository: Repository<Auth>,
-    ){
+    ) {
         super({
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             ignoreExpiraton: false,
@@ -18,11 +23,10 @@ export class JwtStrategy extends PassportStrategy(Strategy){
         });
     }
 
-    async validate(payload){
-        const  { id } = payload;
-
-        const user =  await this.usersRepository.findOneBy({id});
-        if(!user){
+    async validate(payload: JwtPayload) {
+        const { id } = payload;
+        const user = await this.usersRepository.findOneBy({ id });
+        if (!user) {
             throw new UnauthorizedException('Login first to access this endpoint');
         }
         return user;

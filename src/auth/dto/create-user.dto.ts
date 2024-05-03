@@ -2,15 +2,10 @@ import {
     IsAlphanumeric,
     IsEmail,
     IsEnum,
-    IsInt,
     IsNotEmpty,
     IsString,
-    Matches,
     MinLength,
   } from 'class-validator';
-  
-//   const passwordRegEx =
-//     /^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,20}$/;
   
   export class CreateAuthDto {
   
@@ -22,7 +17,6 @@ import {
     @IsNotEmpty()
     @IsEmail()
     email: string;
-  
   
     @IsString()
     @IsEnum(['admin', 'user'])
