@@ -46,7 +46,6 @@ Test using postman
 
   1. register
         Post localhost:3000/auth/register
-        body, Json   
         {
             "username" : "test",
             "email" : "test@example.com",
@@ -55,7 +54,6 @@ Test using postman
         } 
   2. login
         Post localhost:3000/auth/login
-        body, Json   
         {
             "email" : "test@example.com",
             "password" : "nestjstest1",
@@ -63,7 +61,6 @@ Test using postman
    3. Creat Cats profile
         header ->  Authorization : Bearer {your token}
         Post localhost:3000/cats
-        body, Json   
             {
                 "name" : "cat",
                 "breed" : "catprofile",
