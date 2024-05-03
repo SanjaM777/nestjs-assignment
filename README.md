@@ -37,14 +37,9 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Test using postman
 
-````
-Test using postman
-
-````
-
-  1. register
+    1. register
         Post localhost:3000/auth/register
         {
             "username" : "test",
@@ -52,13 +47,13 @@ Test using postman
             "password" : "nestjstest1",
             "role" : "admin"
         } 
-  2. login
+    2. login
         Post localhost:3000/auth/login
         {
             "email" : "test@example.com",
             "password" : "nestjstest1",
         } 
-   3. Creat Cats profile
+    3. Creat Cats profile
         header ->  Authorization : Bearer {your token}
         Post localhost:3000/cats
             {
@@ -66,11 +61,11 @@ Test using postman
                 "breed" : "catprofile",
                 "age" : 12,
             } 
-    4.Get cats profile 
+    4. Get cats profile 
         header ->  Authorization : Bearer {your token}
         Get localhost:3000/cats
 
-    5.Get catprofile by Id
+    5. Get catprofile by Id
         header ->  Authorization : Bearer {your token}
         Get localhost:3000/cats/{id}
 
